@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weather App</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="weather-app">
+
+        <!-- Header -->
+        <header class="header">
+            <h1>Weather App</h1>
+            <p>Check the weather of any city</p>
+        </header>
+
+
+        <!-- Search -->
+        <div class="search-box">
+            <input
+                type="text"
+                placeholder="Enter city name..."
+                class="city-input"
+            >
+
+            <button class="search-btn">
+                Search
+            </button>
+        </div>
+
+
+        <!-- Current Weather -->
+        <section class="weather-card">
+
+            <div class="location">
+                <h2>Islamabad</h2>
+                <p>Pakistan</p>
+            </div>
+
+            <div class="weather-main">
+
+                <div class="weather-icon">
+                    ☀️
+                </div>
+
+                <div class="temperature">
+                    <h2>28°</h2>
+                    <p>Sunny</p>
+                </div>
+
+            </div>
+
+            <div class="weather-details">
+
+                <div class="detail">
+                    <span>💧</span>
+                    <p>Humidity</p>
+                    <strong>65%</strong>
+                </div>
+
+                <div class="detail">
+                    <span>💨</span>
+                    <p>Wind</p>
+                    <strong>12 km/h</strong>
+                </div>
+
+                <div class="detail">
+                    <span>🌡️</span>
+                    <p>Feels Like</p>
+                    <strong>30°</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Forecast -->
+        <section class="forecast-section">
+
+            <h2>5 Day Forecast</h2>
+
+            <div class="forecast-container">
+
+                <div class="forecast-card">
+                    <p>Mon</p>
+                    <span>☀️</span>
+                    <h3>29°</h3>
+                    <small>Sunny</small>
+                </div>
+
+                <div class="forecast-card">
+                    <p>Tue</p>
+                    <span>🌤️</span>
+                    <h3>27°</h3>
+                    <small>Cloudy</small>
+                </div>
+
+                <div class="forecast-card">
+                    <p>Wed</p>
+                    <span>🌧️</span>
+                    <h3>24°</h3>
+                    <small>Rainy</small>
+                </div>
+
+                <div class="forecast-card">
+                    <p>Thu</p>
+                    <span>☀️</span>
+                    <h3>28°</h3>
+                    <small>Sunny</small>
+                </div>
+
+                <div class="forecast-card">
+                    <p>Fri</p>
+                    <span>⛅</span>
+                    <h3>26°</h3>
+                    <small>Cloudy</small>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+<script src="./script.js"></script>
+</body>
+
+</html>
