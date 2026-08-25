@@ -14,10 +14,11 @@ const searchBtn = document.querySelector('.search-btn')
 const cityName = document.querySelector('.city-name')
 const weatherTemperature = document.querySelector('.temperatureIn')
 const weatherCondition = document.querySelector('.condition')
-const humidity=document.querySelector('.humidity')
-const windSpeed=document.querySelector('.wind-speed')
-const feelsLike=document.querySelector('.feels-like')
-
+const humidity = document.querySelector('.humidity')
+const windSpeed = document.querySelector('.wind-speed')
+const feelsLike = document.querySelector('.feels-like')
+const forecastDay = document.querySelector('.forecast-day')
+const forecastContainer = document.querySelector('forecast-container')
 
 const apiKey = 'd57de0391da2d301eb6fc2e33f4908d6'
 //   URL={'https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}'}
@@ -26,22 +27,52 @@ const apiKey = 'd57de0391da2d301eb6fc2e33f4908d6'
 searchBtn.addEventListener('click', () => {
     const city = cityInput.value
     getWeatherData(city)
+    getForecastData(city)
 })
 
+
 async function getWeatherData(city) {
+
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
     const weather = await response.json()
     console.log(weather)
-if (weather.cod==200) {
-    cityName.textContent = weather.name
-    weatherTemperature.textContent = weather.main.temp+'°C'
-    weatherCondition.textContent = weather.weather[0].main
-    humidity.textContent = weather.main.humidity + '%'
-    windSpeed.textContent = weather.wind.speed+'m/s'
-    feelsLike.textContent=weather.main.feels_like+'°C'
-}else{
-    alert('Something Went Wrong')
+    if (weather.cod == 200) {
+        cityName.textContent = weather.name
+        weatherTemperature.textContent = weather.main.temp + '°C'
+        weatherCondition.textContent = weather.weather[0].main
+        humidity.textContent = weather.main.humidity + '%'
+        windSpeed.textContent = weather.wind.speed + 'm/s'
+        feelsLike.textContent = weather.main.feels_like + '°C'
+    } else {
+        cityName.textContent = 'Enter Correct City'
+
+    }
 }
-        
+async function getForecastData(city) {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`)
+    const forecast = response.json()
+
+    for (let i = 0; i < 5; i++) {
+const data = forecast.list[i * 8 ]
+    forecastContainer.innerHTML = ''
+
+        const card = document.createElement('div')
+        card.classList.add('forecast-card')
+        const date =new Date(date.dt*100)
+        const day =date.toLocaleDateString('en-US' ,{
+weekday:"short"
+        })
+
+        card.innerHTML = `
+                    <p class="forecast-day">${day}</p>
+                    <span>data</span>
+                    <h3>29°</h3>
+                    <small>Sunny</small>
+    
+    `
+
+
+    }
+
 
 }
